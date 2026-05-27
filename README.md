@@ -13,9 +13,9 @@ O sistema realiza a leitura dos arquivos, o processamento textual e a contagem d
 
 # Base de Dados
 
-Foi utilizada a base “Wikipedia 20230701”, contendo dados textuais extraídos da Wikipédia.
+Foi utilizada a base “Wikipedia 20230701”, obtida através da plataforma Kaggle, contendo dados textuais extraídos da Wikipédia referentes à versão de julho de 2023.
 
-Durante a execução do sistema, bilhões de palavras foram processadas para análise de frequência dos termos presentes nos arquivos.
+A pasta completa da base possui aproximadamente 13 GB de dados, compostos por milhões de artigos da Wikipédia utilizados no processamento e análise das palavras durante a execução do sistema.
 
 # Funcionalidades
 
