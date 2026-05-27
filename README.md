@@ -7,7 +7,7 @@
 
 # Introdução
 
-O projeto tem como objetivo desenvolver um sistema de contagem de palavras utilizando dados textuais da Wikipédia. A base utilizada foi obtida através da plataforma Kaggle, contendo artigos da Wikipédia referentes à versão de julho de 2023.
+O projeto tem como objetivo desenvolver um sistema de contagem de palavras utilizando dados textuais da Wikipédia. A base utilizada foi obtida através da plataforma Kaggle.
 
 O sistema realiza a leitura dos arquivos, o processamento textual e a contagem da frequência das palavras encontradas. O projeto busca demonstrar técnicas de processamento de grandes volumes de dados, permitindo analisar bilhões de palavras de forma eficiente.
 
