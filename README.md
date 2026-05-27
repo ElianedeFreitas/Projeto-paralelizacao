@@ -1,9 +1,10 @@
 Projeto de Paralelização — Contador de Palavras da Wikipédia
 Campo	Informação
-Disciplina	Programação Concorrente
-Alunas	Eliane de Freitas e Rayna Livia
-Curso	Análise e Desenvolvimento de Sistemas
-Professor	Rafael Marconi Ramos
+Disciplina:	Programação Concorrente
+Alunas:	Eliane de Freitas e Rayna Livia
+Curso:	Análise e Desenvolvimento de Sistemas
+Professor:	Rafael Marconi Ramos
+
 1. Descrição do Problema
 
 O objetivo do projeto é desenvolver um sistema de contagem de palavras utilizando Programação Concorrente para processar grandes volumes de dados textuais extraídos da Wikipédia.
