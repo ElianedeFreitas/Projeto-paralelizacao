@@ -48,22 +48,22 @@ O tempo de execução foi medido considerando todo o processamento dos dados.
 
 ========== RESULTADOS ==========
 
-Total de palavras: 3729807787
+Total de palavras: 3.729.807.787
 
 Tempo de execução: 2862.22 segundos
 
-Top 10 palavras:
+Top 10 palavras mais usadas:
 
-the -> 215190151
-of -> 115802937
-in -> 95929216
-and -> 90241749
-a -> 65582641
-to -> 58561365
-was -> 34991248
-is -> 29833293
-for -> 26626387
-on -> 25752927
+the -> 215.190.151
+of -> 115.802.937
+in -> 95.929.216
+and -> 90.241.749
+a -> 65.582.641
+to -> 58.561.365
+was -> 34.991.248
+is -> 29.833.293
+for -> 26.626.387
+on -> 25.752.927
 ```
 
 # Análise dos Resultados
