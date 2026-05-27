@@ -1,9 +1,13 @@
 # Projeto — Contador de Palavras da Wikipédia
 
+| Informação | Detalhes |
+|---|---|
 | Disciplina | Programação Concorrente |
 | Alunas | Eliane de Freitas e Rayna Livia |
 | Curso | Análise e Desenvolvimento de Sistemas |
 | Professor | Rafael Marconi Ramos |
+
+---
 
 # Introdução
 
@@ -11,11 +15,26 @@ O projeto tem como objetivo desenvolver um sistema de contagem de palavras utili
 
 O sistema realiza a leitura dos arquivos, o processamento textual e a contagem da frequência das palavras encontradas. O projeto busca demonstrar técnicas de processamento de grandes volumes de dados, permitindo analisar bilhões de palavras de forma eficiente.
 
+---
+
 # Base de Dados
 
 Foi utilizada a base “Wikipedia 20230701”, obtida através da plataforma Kaggle, contendo dados textuais extraídos da Wikipédia referentes à versão de julho de 2023.
 
 A pasta completa da base possui aproximadamente 13 GB de dados, compostos por milhões de artigos da Wikipédia utilizados no processamento e análise das palavras durante a execução do sistema.
+
+---
+
+# Configuração do Ambiente
+
+| Componente | Especificação |
+|---|---|
+| Processador | Ryzen 5 5600G |
+| Número de Núcleos | 7 |
+| Memória RAM | 32 GB |
+| Linguagem Utilizada | Python |
+
+---
 
 # Funcionalidades
 
@@ -26,12 +45,19 @@ O programa realiza:
 - Contagem de frequência;
 - Exibição das palavras mais utilizadas.
 
+---
+
 # Tecnologias Utilizadas
 
-Linguagem | python |
-Paradigma | Processamento de Dados |
-Base de Dados | Wikipédia |
-Plataforma da Base | Kaggle |
+| Tecnologia | Utilização |
+|---|---|
+| Python | Linguagem principal |
+| Pandas | Manipulação de dados |
+| PyArrow | Leitura de arquivos parquet |
+| Wikipédia | Base de dados |
+| Kaggle | Plataforma da base |
+
+---
 
 # Metodologia
 
@@ -44,8 +70,11 @@ O sistema realiza:
 
 O tempo de execução foi medido considerando todo o processamento dos dados.
 
+---
+
 # Resultados Experimentais
 
+```text
 ========== RESULTADOS ==========
 
 Total de palavras: 3.729.807.787
@@ -66,6 +95,8 @@ for -> 26.626.387
 on -> 25.752.927
 ```
 
+---
+
 # Análise dos Resultados
 
 Os resultados demonstram que o sistema conseguiu processar grandes volumes de dados textuais da Wikipédia com eficiência.
@@ -73,6 +104,8 @@ Os resultados demonstram que o sistema conseguiu processar grandes volumes de da
 As palavras mais frequentes encontradas foram termos comuns da língua inglesa, como “the”, “of” e “in”, comportamento esperado em textos informativos.
 
 O projeto mostrou a importância de técnicas de processamento textual para análise de grandes quantidades de informações.
+
+---
 
 # Conclusão
 
