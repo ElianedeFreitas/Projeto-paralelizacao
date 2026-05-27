@@ -1,71 +1,51 @@
-Projeto de Paralelização — Contador de Palavras da Wikipédia
-Campo	Informação
-Disciplina:	Programação Concorrente
-Alunas:	Eliane de Freitas e Rayna Livia
-Curso:	Análise e Desenvolvimento de Sistemas
-Professor:	Rafael Marconi Ramos
+# Projeto — Contador de Palavras da Wikipédia
 
-1. Descrição do Problema
+| Disciplina | Programação Concorrente |
+| Alunas | Eliane de Freitas e Rayna Livia |
+| Curso | Análise e Desenvolvimento de Sistemas |
+| Professor | Rafael Marconi Ramos |
 
-O objetivo do projeto é desenvolver um sistema de contagem de palavras utilizando Programação Concorrente para processar grandes volumes de dados textuais extraídos da Wikipédia.
+# Introdução
+
+O projeto tem como objetivo desenvolver um sistema de contagem de palavras utilizando dados textuais da Wikipédia. A base utilizada foi obtida através da plataforma Kaggle, contendo artigos da Wikipédia referentes à versão de julho de 2023.
+
+O sistema realiza a leitura dos arquivos, o processamento textual e a contagem da frequência das palavras encontradas. O projeto busca demonstrar técnicas de processamento de grandes volumes de dados, permitindo analisar bilhões de palavras de forma eficiente.
+
+# Base de Dados
+
+Foi utilizada a base “Wikipedia 20230701”, contendo dados textuais extraídos da Wikipédia.
+
+Durante a execução do sistema, bilhões de palavras foram processadas para análise de frequência dos termos presentes nos arquivos.
+
+# Funcionalidades
 
 O programa realiza:
 
-Leitura dos arquivos;
-Processamento das palavras;
-Contagem de frequência;
-Paralelização utilizando múltiplas threads.
+- Leitura dos arquivos;
+- Processamento das palavras;
+- Contagem de frequência;
+- Exibição das palavras mais utilizadas.
 
-A proposta busca demonstrar como o uso de concorrência melhora o desempenho e reduz o tempo de processamento em aplicações que trabalham com grande quantidade de dados.
+# Tecnologias Utilizadas
 
-2. Base de Dados
+Linguagem | Java |
+Paradigma | Processamento de Dados |
+Base de Dados | Wikipédia |
+Plataforma da Base | Kaggle |
 
-Foi utilizada a base “Redes de artigos da Wikipédia”, versão 1.1, contendo aproximadamente 11,14 MB de dados textuais relacionados a páginas da Wikipédia.
+# Metodologia
 
-O processamento envolveu bilhões de palavras analisadas durante a execução do sistema.
+O sistema realiza:
 
-3. Algoritmo Utilizado
+1. Leitura dos arquivos da Wikipédia;
+2. Separação das palavras;
+3. Contagem da frequência dos termos;
+4. Organização dos resultados finais.
 
-O sistema utiliza processamento paralelo com múltiplas threads.
+O tempo de execução foi medido considerando todo o processamento dos dados.
 
-A estratégia consiste em:
+# Resultados Experimentais
 
-Dividir os arquivos em partes menores;
-Distribuir as tarefas entre diferentes threads;
-Processar simultaneamente os dados;
-Consolidar os resultados finais.
-
-A complexidade aproximada do algoritmo é:
-
-Modo	Complexidade
-Sequencial	O(n)
-Paralelo	O(n/p)
-Consolidação	O(p)
-
-Onde:
-
-n = quantidade de palavras;
-p = número de threads.
-4. Ambiente Experimental
-Item	Descrição
-Linguagem	Java
-Paradigma	Programação Concorrente
-Biblioteca	Threads Java
-Base de dados	Wikipédia
-Tipo de processamento	Paralelo
-5. Metodologia de Testes
-
-O tempo de execução foi medido antes e após o processamento completo dos arquivos, incluindo:
-
-Leitura dos dados;
-Processamento textual;
-Contagem das palavras;
-Consolidação dos resultados.
-
-Cada thread ficou responsável por processar uma parte da base de dados simultaneamente.
-
-6. Resultados Experimentais
-Resultado da Execução
 ========== RESULTADOS ==========
 
 Total de palavras: 3729807787
@@ -84,35 +64,25 @@ was -> 34991248
 is -> 29833293
 for -> 26626387
 on -> 25752927
-7. Análise dos Resultados
+```
 
-Os resultados mostram que o sistema conseguiu processar bilhões de palavras da base da Wikipédia utilizando Programação Concorrente.
+# Análise dos Resultados
 
-As palavras mais frequentes encontradas foram termos comuns da língua inglesa, como “the”, “of” e “in”, comportamento esperado em textos da Wikipédia.
+Os resultados demonstram que o sistema conseguiu processar grandes volumes de dados textuais da Wikipédia com eficiência.
 
-A paralelização permitiu:
+As palavras mais frequentes encontradas foram termos comuns da língua inglesa, como “the”, “of” e “in”, comportamento esperado em textos informativos.
 
-Melhor aproveitamento do processador;
-Redução do tempo de execução;
-Processamento simultâneo de múltiplos dados.
+O projeto mostrou a importância de técnicas de processamento textual para análise de grandes quantidades de informações.
 
-Mesmo assim, fatores como leitura de arquivos, sincronização entre threads e compartilhamento de memória ainda influenciam no desempenho final do sistema.
+# Conclusão
 
-8. Conclusão
+O desenvolvimento do sistema permitiu aplicar conceitos de processamento textual e análise de dados em um cenário real utilizando informações da Wikipédia.
 
-O projeto demonstrou a importância da Programação Concorrente no processamento de grandes volumes de dados.
+Além disso, o projeto contribuiu para o entendimento prático de:
 
-A utilização de múltiplas threads tornou o processamento mais eficiente, reduzindo o tempo necessário para análise textual e melhorando o desempenho da aplicação.
+- Processamento de dados;
+- Estruturação de informações;
+- Análise textual;
+- Otimização de desempenho.
 
-Além disso, o projeto contribuiu para a compreensão prática de conceitos como:
-
-Threads;
-Paralelização;
-Sincronização;
-Processamento concorrente;
-Otimização de desempenho.
-
-O desenvolvimento do sistema mostrou como técnicas de concorrência podem ser aplicadas em cenários reais envolvendo processamento massivo de informações.
-Sincronização;
-Processamento concorrente;
-Otimização de desempenho.
+O projeto demonstrou como técnicas computacionais podem ser utilizadas para analisar grandes volumes de dados de maneira eficiente.
