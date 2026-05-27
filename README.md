@@ -28,7 +28,7 @@ O programa realiza:
 
 # Tecnologias Utilizadas
 
-Linguagem | Java |
+Linguagem | python |
 Paradigma | Processamento de Dados |
 Base de Dados | Wikipédia |
 Plataforma da Base | Kaggle |
