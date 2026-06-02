@@ -1,0 +1,363 @@
+Esse contador de palavras deve contar todas as palavras que eu escrever e me dizer quais aparecem mais vezes e quais aparecem menos vezes
+
+
+========== RESULTADOS ==========
+
+Total de palavras: 3729807787
+
+Tempo de execução: 2862.22 segundos
+
+Top 10 palavras:
+
+the -> 215190151
+of -> 115802937
+in -> 95929216
+and -> 90241749
+a -> 65582641
+to -> 58561365
+was -> 34991248
+is -> 29833293
+for -> 26626387
+on -> 25752927
+
+
+
+
+
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> py contador_serial.py
+Iniciando processamento...
+
+========== RESULTADOS ==========
+
+Total de palavras: 3729807787
+
+Tempo de execução: 2862.22 segundos
+
+Top 10 palavras:
+
+the -> 215190151
+of -> 115802937
+in -> 95929216
+and -> 90241749
+a -> 65582641
+to -> 58561365
+was -> 34991248
+is -> 29833293
+for -> 26626387
+on -> 25752927
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> git init
+Initialized empty Git repository in C:/Users/elian/Desktop/FACULDADE/projetocontadordepalavras/.git/
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> git remote add origin https://github.com/ElianedeFreitas/Projeto-paralelizacao.git
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        a.parquet/
+        contador_serial.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> git add .
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> git reset
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> git add .
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> git reset
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        contador_serial.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> git add .
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> git commit -m "Primeira versão serial"
+[master (root-commit) ac5dab9] Primeira versão serial
+ 2 files changed, 75 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 contador_serial.py
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> git push -u origin master
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 873 bytes | 873.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: 
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/ElianedeFreitas/Projeto-paralelizacao/pull/new/master
+remote: 
+To https://github.com/ElianedeFreitas/Projeto-paralelizacao.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> 
+
+
+
+
+
+
+
+Com threads:
+
+
+
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> py contador_threads.py
+Lendo base de dados...
+Total de artigos na base: 12,573,550
+Amostra utilizada: 1,000,000
+
+========== RESULTADOS ==========
+
+Executando com 4 threads...
+
+Tempo: 375.60 segundos
+Total de palavras: 525310204
+
+Top 10 palavras:
+
+the -> 32040567
+of -> 17093205
+in -> 14274333
+and -> 13486227
+a -> 9334795
+to -> 8813944
+was -> 5217657
+is -> 4017112
+for -> 3887672
+on -> 3804643
+
+------------------------------------------------------------
+Executando com 8 threads...
+
+Tempo: 363.77 segundos
+Total de palavras: 525310204
+
+Top 10 palavras:
+
+the -> 32040567
+of -> 17093205
+in -> 14274333
+and -> 13486227
+a -> 9334795
+to -> 8813944
+was -> 5217657
+is -> 4017112
+for -> 3887672
+on -> 3804643
+
+------------------------------------------------------------
+Executando com 12 threads...
+
+Tempo: 363.88 segundos
+Total de palavras: 525310204
+
+Top 10 palavras:
+
+the -> 32040567
+of -> 17093205
+in -> 14274333
+and -> 13486227
+a -> 9334795
+to -> 8813944
+was -> 5217657
+is -> 4017112
+for -> 3887672
+on -> 3804643
+
+------------------------------------------------------------
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> 
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> py contador_threads.py
+Lendo base de dados...
+Total de artigos na base: 12,573,550
+Amostra utilizada: 1,000,000
+
+========== BENCHMARK ==========
+
+Executando com 2 threads...
+Tempo: 623.30 segundos
+Total de palavras: 525310204
+------------------------------------------------------------
+Executando com 4 threads...
+Tempo: 377.16 segundos
+Total de palavras: 525310204
+------------------------------------------------------------
+Executando com 8 threads...
+Tempo: 383.65 segundos
+Total de palavras: 525310204
+------------------------------------------------------------
+Executando com 12 threads...
+Tempo: 379.12 segundos
+Total de palavras: 525310204
+------------------------------------------------------------
+
+========== RESUMO ==========
+
+2 threads -> 623.30 segundos
+4 threads -> 377.16 segundos
+8 threads -> 383.65 segundos
+12 threads -> 379.12 segundos
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> 
+
+
+
+
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> py teste_parquet.py
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> py teste_parquet.py
+Index(['id', 'title', 'text', 'categories'], dtype='str')
+(12573550, 4)
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> py contador_threads.py
+Lendo parquet...
+Base completa: 12,573,550 artigos
+Amostra utilizada: 500,000 artigos
+
+========== RESULTADOS ==========
+
+
+Executando com 2 threads...
+Tempo: 743.88 segundos
+Total de palavras: 255026276
+
+Top 10 palavras:
+the -> 15181749
+of -> 8355190
+in -> 6974308
+and -> 6501083
+a -> 4537695
+to -> 4213506
+was -> 2524797
+is -> 1937604
+for -> 1897447
+as -> 1854596
+
+------------------------------------------------------------
+
+Executando com 4 threads...
+Tempo: 198.88 segundos
+Total de palavras: 255026276
+
+Top 10 palavras:
+the -> 15181749
+of -> 8355190
+in -> 6974308
+and -> 6501083
+a -> 4537695
+to -> 4213506
+was -> 2524797
+is -> 1937604
+for -> 1897447
+as -> 1854596
+
+------------------------------------------------------------
+
+Executando com 8 threads...
+Tempo: 200.29 segundos
+Total de palavras: 255026276
+
+Top 10 palavras:
+the -> 15181749
+of -> 8355190
+in -> 6974308
+and -> 6501083
+a -> 4537695
+to -> 4213506
+was -> 2524797
+is -> 1937604
+for -> 1897447
+as -> 1854596
+
+------------------------------------------------------------
+
+Executando com 12 threads...
+Tempo: 199.54 segundos
+Total de palavras: 255026276
+
+Top 10 palavras:
+the -> 15181749
+of -> 8355190
+in -> 6974308
+and -> 6501083
+a -> 4537695
+to -> 4213506
+was -> 2524797
+is -> 1937604
+for -> 1897447
+as -> 1854596
+
+------------------------------------------------------------
+
+Executando com 16 threads...
+Tempo: 200.71 segundos
+Total de palavras: 255026276
+
+Top 10 palavras:
+the -> 15181749
+of -> 8355190
+in -> 6974308
+and -> 6501083
+a -> 4537695
+to -> 4213506
+was -> 2524797
+is -> 1937604
+for -> 1897447
+as -> 1854596
+
+------------------------------------------------------------
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> 
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> 
+
+
+
+
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> py contador_threads.py
+Lendo arquivo parquet...
+Traceback (most recent call last):
+  File "C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras\contador_threads.py", line 114, in <module>
+    benchmark_threads(arquivo)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras\contador_threads.py", line 84, in benchmark_threads
+    df = pd.read_parquet(arquivo)
+  File "C:\Users\elian\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\parquet.py", line 671, in read_parquet
+    return impl.read(
+           ~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\elian\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\parquet.py", line 260, in read
+    pa_table = self.api.parquet.read_table(
+        path_or_handle,
+    ...<3 lines>...
+        **kwargs,
+    )
+  File "C:\Users\elian\AppData\Local\Programs\Python\Python313\Lib\site-packages\pyarrow\parquet\core.py", line 1959, in read_table
+    return dataset.read(columns=columns, use_threads=use_threads,
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        use_pandas_metadata=use_pandas_metadata)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\elian\AppData\Local\Programs\Python\Python313\Lib\site-packages\pyarrow\parquet\core.py", line 1585, in read
+    table = self._dataset.to_table(
+        columns=columns, filter=self._filter_expression,
+        use_threads=use_threads
+    )
+  File "pyarrow/_dataset.pyx", line 589, in pyarrow._dataset.Dataset.to_table
+  File "pyarrow/_dataset.pyx", line 3969, in pyarrow._dataset.Scanner.to_table
+  File "pyarrow/error.pxi", line 155, in pyarrow.lib.pyarrow_internal_check_status
+  File "pyarrow/error.pxi", line 92, in pyarrow.lib.check_status
+pyarrow.lib.ArrowMemoryError: realloc of size 1358954496 failed
+PS C:\Users\elian\Desktop\FACULDADE\projetocontadordepalavras> 
+
+
+
+
+
+
+
+
