@@ -3,9 +3,9 @@
 | Informação | Detalhes |
 |---|---|
 | Disciplina | Programação Concorrente |
-| Alunas: Eliane de Freitas e Rayna Livia |
-| Curso:Análise e Desenvolvimento de Sistemas |
-| Professor:Rafael Marconi Ramos |
+| Alunas | Eliane de Freitas e Rayna Livia |
+| Curso | Análise e Desenvolvimento de Sistemas |
+| Professor | Rafael Marconi Ramos |
 
 ---
 
