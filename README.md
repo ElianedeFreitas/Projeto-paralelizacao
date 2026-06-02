@@ -3,17 +3,21 @@
 | Informação | Detalhes |
 |---|---|
 | Disciplina | Programação Concorrente |
-| Alunas | Eliane de Freitas e Rayna Livia |
-| Curso | Análise e Desenvolvimento de Sistemas |
-| Professor | Rafael Marconi Ramos |
+| Alunas: Eliane de Freitas e Rayna Livia |
+| Curso:Análise e Desenvolvimento de Sistemas |
+| Professor:Rafael Marconi Ramos |
 
 ---
 
 # Introdução
 
-O projeto tem como objetivo desenvolver um sistema de contagem de palavras utilizando dados textuais da Wikipédia. A base utilizada foi obtida através da plataforma Kaggle.
+O crescimento exponencial da quantidade de informações disponíveis na internet tornou necessária a criação de ferramentas capazes de processar e analisar grandes volumes de dados de forma eficiente. Nesse contexto, a Wikipédia representa uma das maiores fontes de conhecimento livre do mundo, contendo milhões de artigos sobre os mais diversos temas.
 
-O sistema realiza a leitura dos arquivos, o processamento textual e a contagem da frequência das palavras encontradas. O projeto busca demonstrar técnicas de processamento de grandes volumes de dados, permitindo analisar bilhões de palavras de forma eficiente.
+O presente projeto tem como objetivo desenvolver um sistema de contagem de palavras utilizando dados textuais da Wikipédia, aplicando conceitos de processamento de dados e programação concorrente. Além de servir como estudo prático de técnicas computacionais, a solução possui potencial para contribuir com diversas áreas da sociedade.
+
+A análise da frequência de palavras em grandes bases textuais pode ser utilizada em pesquisas acadêmicas, sistemas de busca, processamento de linguagem natural, inteligência artificial, análise de tendências e desenvolvimento de ferramentas educacionais. Por meio desse tipo de processamento, é possível identificar padrões linguísticos, compreender melhor o comportamento da informação e auxiliar na organização de grandes repositórios de conhecimento.
+
+Dessa forma, o projeto não apenas demonstra a aplicação de técnicas de computação em problemas reais, mas também evidencia como o tratamento eficiente de grandes volumes de dados pode contribuir para a produção, organização e disseminação do conhecimento em benefício da sociedade.
 
 ---
 
@@ -72,7 +76,7 @@ O tempo de execução foi medido considerando todo o processamento dos dados.
 
 ---
 
-# Resultados Experimentais
+# Resultados Experimentais - Versão Serial
 
 ```text
 ========== RESULTADOS ==========
@@ -97,6 +101,37 @@ on -> 25.752.927
 
 ---
 
+# Implementação Paralela com Threads
+
+Além da implementação serial, foi desenvolvida uma versão utilizando múltiplas threads com o objetivo de avaliar o impacto da concorrência no processamento dos dados.
+
+Devido ao grande volume da base de dados completa (12.573.550 artigos), foi utilizada uma amostra de 1.000.000 de artigos para os experimentos paralelos, permitindo a execução de diversos testes em tempo viável.
+
+A implementação paralela utilizou a biblioteca `concurrent.futures.ThreadPoolExecutor`, distribuindo os artigos entre diferentes threads para processamento simultâneo.
+
+---
+
+# Resultados Experimentais - Threads
+
+### Base utilizada nos testes paralelos
+
+| Métrica | Valor |
+|----------|---------:|
+| Total de artigos da base | 12.573.550 |
+| Artigos utilizados nos testes | 1.000.000 |
+| Total de palavras processadas | 525.310.204 |
+
+### Tempo de execução por quantidade de threads
+
+| Threads | Tempo (segundos) |
+|----------|----------------:|
+| 2 Threads | 623,30 |
+| 4 Threads | 377,16 |
+| 8 Threads | 383,65 |
+| 12 Threads | 379,12 |
+
+---
+
 # Análise dos Resultados
 
 Os resultados demonstram que o sistema conseguiu processar grandes volumes de dados textuais da Wikipédia com eficiência.
@@ -105,17 +140,27 @@ As palavras mais frequentes encontradas foram termos comuns da língua inglesa, 
 
 O projeto mostrou a importância de técnicas de processamento textual para análise de grandes quantidades de informações.
 
+Em relação à implementação paralela, observou-se que a utilização de múltiplas threads reduziu significativamente o tempo de execução quando comparada à execução com apenas 2 threads.
+
+A melhor configuração encontrada foi a utilização de 4 threads, que apresentou o menor tempo de processamento entre os testes realizados.
+
+Também foi observado que o aumento do número de threads para 8 e 12 não resultou em ganhos significativos de desempenho. Esse comportamento evidencia a existência de custos associados ao gerenciamento das threads e à disputa por recursos computacionais, limitando a escalabilidade da solução.
+
 ---
 
 # Conclusão
 
-O desenvolvimento do sistema permitiu aplicar conceitos de processamento textual e análise de dados em um cenário real utilizando informações da Wikipédia.
+O desenvolvimento do sistema permitiu aplicar conceitos de processamento textual, análise de dados e programação concorrente em um cenário real utilizando informações da Wikipédia.
 
 Além disso, o projeto contribuiu para o entendimento prático de:
 
 - Processamento de dados;
 - Estruturação de informações;
 - Análise textual;
-- Otimização de desempenho.
+- Otimização de desempenho;
+- Programação concorrente com threads;
+- Avaliação de escalabilidade.
 
-O projeto demonstrou como técnicas computacionais podem ser utilizadas para analisar grandes volumes de dados de maneira eficiente.
+Os experimentos demonstraram que a utilização de threads pode reduzir significativamente o tempo de processamento, porém o aumento do número de threads nem sempre resulta em ganhos proporcionais de desempenho.
+
+O projeto demonstrou como técnicas computacionais podem ser utilizadas para analisar grandes volumes de dados de maneira eficiente, bem como a importância da escolha adequada da quantidade de threads para cada cenário de processamento.
