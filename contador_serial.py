@@ -3,72 +3,66 @@ import time
 import string
 from collections import Counter
 
-# =========================================
-# FUNÇÃO PARA PROCESSAR TEXTO
-# =========================================
+LIMITE_ARTIGOS = 1_000_000
+
+TABELA_TRADUCAO = str.maketrans(
+    '',
+    '',
+    string.punctuation
+)
+
 def processar_texto(texto):
 
     texto = texto.lower()
 
     texto = texto.translate(
-        str.maketrans('', '', string.punctuation)
+        TABELA_TRADUCAO
     )
 
-    palavras = texto.split()
+    return texto.split()
 
-    return palavras
+def contar_serial(arquivo):
 
-# =========================================
-# FUNÇÃO PRINCIPAL
-# =========================================
-def contar_palavras_serial(arquivo):
+    print("Lendo base de dados...")
 
-    print("Iniciando processamento...\n")
+    df = pd.read_parquet(arquivo)
+
+    total_artigos = len(df)
+
+    df = df.head(LIMITE_ARTIGOS)
+
+    print(f"Total de artigos na base: {total_artigos:,}")
+    print(f"Artigos processados: {len(df):,}")
+
+    print("\nIniciando contagem serial...")
 
     inicio = time.time()
 
-    # leitura parquet
-    df = pd.read_parquet(arquivo)
-
-    contador_total = Counter()
+    contador = Counter()
 
     total_palavras = 0
 
-    # =====================================
-    # PROCESSA LINHA POR LINHA
-    # =====================================
-    for texto in df["text"].astype(str):
+    for texto in df["text"]:
 
-        palavras = processar_texto(texto)
+        palavras = processar_texto(str(texto))
 
-        contador_total.update(palavras)
+        contador.update(palavras)
 
         total_palavras += len(palavras)
 
-    fim = time.time()
+    tempo = time.time() - inicio
 
-    tempo_execucao = fim - inicio
+    print("\n========== RESULTADOS ==========\n")
 
-    top_10 = contador_total.most_common(10)
+    print(f"Tempo de contagem: {tempo:.2f} segundos")
+    print(f"Total de palavras: {total_palavras:,}")
 
-    # =====================================
-    # RESULTADOS
-    # =====================================
-    print("========== RESULTADOS ==========\n")
+    print("\nTop 10 palavras:\n")
 
-    print(f"Total de palavras: {total_palavras}\n")
+    for palavra, qtd in contador.most_common(10):
 
-    print(f"Tempo de execução: {tempo_execucao:.2f} segundos\n")
+        print(f"{palavra} -> {qtd:,}")
 
-    print("Top 10 palavras:\n")
+if __name__ == "__main__":
 
-    for palavra, quantidade in top_10:
-        print(f"{palavra} -> {quantidade}")
-
-# =========================================
-# EXECUÇÃO
-# =========================================
-
-arquivo = "a.parquet"
-
-contar_palavras_serial(arquivo)
+    contar_serial("a.parquet")
