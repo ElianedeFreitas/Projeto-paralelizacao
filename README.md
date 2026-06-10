@@ -1,7 +1,9 @@
 # Projeto — Contador de Palavras da Wikipédia
 
+## Informações da Disciplina
+
 | Informação | Detalhes |
-|---|---|
+|------------|----------|
 | Disciplina | Programação Concorrente |
 | Alunas | Eliane de Freitas e Rayna Livia |
 | Curso | Análise e Desenvolvimento de Sistemas |
@@ -13,51 +15,41 @@
 
 O crescimento exponencial da quantidade de informações disponíveis na internet tornou necessária a criação de ferramentas capazes de processar e analisar grandes volumes de dados de forma eficiente. Nesse contexto, a Wikipédia representa uma das maiores fontes de conhecimento livre do mundo, contendo milhões de artigos sobre os mais diversos temas.
 
-O presente projeto tem como objetivo desenvolver um sistema de contagem de palavras utilizando dados textuais da Wikipédia, aplicando conceitos de processamento de dados e programação concorrente. Além de servir como estudo prático de técnicas computacionais, a solução possui potencial para contribuir com diversas áreas da sociedade.
+O presente projeto tem como objetivo desenvolver um sistema de contagem de palavras utilizando dados textuais da Wikipédia, aplicando conceitos de processamento de dados e programação paralela.
 
-A análise da frequência de palavras em grandes bases textuais pode ser utilizada em pesquisas acadêmicas, sistemas de busca, processamento de linguagem natural, inteligência artificial, análise de tendências e desenvolvimento de ferramentas educacionais. Por meio desse tipo de processamento, é possível identificar padrões linguísticos, compreender melhor o comportamento da informação e auxiliar na organização de grandes repositórios de conhecimento.
-
-Dessa forma, o projeto não apenas demonstra a aplicação de técnicas de computação em problemas reais, mas também evidencia como o tratamento eficiente de grandes volumes de dados pode contribuir para a produção, organização e disseminação do conhecimento em benefício da sociedade.
+A análise da frequência de palavras em grandes bases textuais pode auxiliar pesquisas acadêmicas, sistemas de busca, aplicações de inteligência artificial, processamento de linguagem natural e ferramentas educacionais. Dessa forma, o projeto demonstra como técnicas computacionais podem contribuir para a organização e análise de grandes volumes de informação.
 
 ---
 
 # Base de Dados
 
-Foi utilizada a base “Wikipedia 20230701”, obtida através da plataforma Kaggle, contendo dados textuais extraídos da Wikipédia referentes à versão de julho de 2023.
+Foi utilizada a base **Wikipedia 20230701**, obtida através da plataforma Kaggle, contendo artigos da Wikipédia referentes à versão de julho de 2023.
 
-A pasta completa da base possui aproximadamente 13 GB de dados, compostos por milhões de artigos da Wikipédia utilizados no processamento e análise das palavras durante a execução do sistema.
+A base completa possui aproximadamente **13 GB de dados**, distribuídos em **12.573.550 artigos**.
+
+Para os testes de desempenho foi utilizada uma amostra de **1.000.000 de artigos**, totalizando **525.310.204 palavras processadas**.
 
 ---
 
 # Configuração do Ambiente
 
 | Componente | Especificação |
-|---|---|
+|------------|--------------|
 | Processador | Ryzen 5 5600G |
-| Número de Núcleos | 7 |
+| Núcleos | 6 núcleos físicos / 12 threads |
 | Memória RAM | 32 GB |
-| Linguagem Utilizada | Python |
-
----
-
-# Funcionalidades
-
-O programa realiza:
-
-- Leitura dos arquivos;
-- Processamento das palavras;
-- Contagem de frequência;
-- Exibição das palavras mais utilizadas.
+| Linguagem Utilizada | Python 3.13 |
 
 ---
 
 # Tecnologias Utilizadas
 
 | Tecnologia | Utilização |
-|---|---|
+|------------|------------|
 | Python | Linguagem principal |
-| Pandas | Manipulação de dados |
-| PyArrow | Leitura de arquivos parquet |
+| Pandas | Manipulação dos dados |
+| PyArrow | Leitura dos arquivos Parquet |
+| Multiprocessing | Paralelização |
 | Wikipédia | Base de dados |
 | Kaggle | Plataforma da base |
 
@@ -65,102 +57,135 @@ O programa realiza:
 
 # Metodologia
 
-O sistema realiza:
+O sistema realiza as seguintes etapas:
 
-1. Leitura dos arquivos da Wikipédia;
-2. Separação das palavras;
-3. Contagem da frequência dos termos;
-4. Organização dos resultados finais.
+1. Leitura dos artigos da Wikipédia;
+2. Conversão do texto para minúsculas;
+3. Remoção de pontuações;
+4. Separação das palavras;
+5. Contagem da frequência dos termos;
+6. Organização dos resultados;
+7. Exibição das palavras mais frequentes.
 
-O tempo de execução foi medido considerando todo o processamento dos dados.
+Foram desenvolvidas duas versões da aplicação:
 
----
-
-# Resultados Experimentais - Versão Serial
-
-```text
-========== RESULTADOS ==========
-
-Total de palavras: 3.729.807.787
-
-Tempo de execução: 2862.22 segundos
-
-Top 10 palavras mais usadas:
-
-the -> 215.190.151
-of -> 115.802.937
-in -> 95.929.216
-and -> 90.241.749
-a -> 65.582.641
-to -> 58.561.365
-was -> 34.991.248
-is -> 29.833.293
-for -> 26.626.387
-on -> 25.752.927
-```
+- Versão Serial;
+- Versão Paralela utilizando múltiplos processos.
 
 ---
 
-# Implementação Paralela com Threads
+# Resultados Experimentais
 
-Além da implementação serial, foi desenvolvida uma versão utilizando múltiplas threads com o objetivo de avaliar o impacto da concorrência no processamento dos dados.
+## Versão Serial
 
-Devido ao grande volume da base de dados completa (12.573.550 artigos), foi utilizada uma amostra de 1.000.000 de artigos para os experimentos paralelos, permitindo a execução de diversos testes em tempo viável.
-
-A implementação paralela utilizou a biblioteca `concurrent.futures.ThreadPoolExecutor`, distribuindo os artigos entre diferentes threads para processamento simultâneo.
-
----
-
-# Resultados Experimentais - Threads
-
-### Base utilizada nos testes paralelos
+### Dados Processados
 
 | Métrica | Valor |
-|----------|---------:|
-| Total de artigos da base | 12.573.550 |
-| Artigos utilizados nos testes | 1.000.000 |
-| Total de palavras processadas | 525.310.204 |
+|----------|-------:|
+| Artigos processados | 1.000.000 |
+| Total de palavras | 525.310.204 |
+| Tempo de execução | 349,22 s |
 
-### Tempo de execução por quantidade de threads
 
-| Threads | Tempo (segundos) |
-|----------|----------------:|
-| 2 Threads | 623,30 |
-| 4 Threads | 377,16 |
-| 8 Threads | 383,65 |
-| 12 Threads | 379,12 |
+---
+
+## Versão Paralela
+
+### Resultados Obtidos
+
+| Processos | Tempo (s) |
+|-----------|----------:|
+| 2 | 216,98 |
+| 4 | 119,25 |
+| 8 | 79,97 |
+| 12 | 69,86 |
+
+---
+
+# Cálculo do Speedup
+
+O speedup foi calculado utilizando a seguinte fórmula:
+
+```text
+Speedup = Tempo Serial / Tempo Paralelo
+```
+
+Onde:
+
+- Tempo Serial = 349,22 segundos
+- Tempo Paralelo = tempo obtido em cada configuração
+
+---
+
+# Estatísticas de Desempenho
+
+| Configuração | Tempo (s) | Speedup |
+|--------------|----------:|---------:|
+| Serial | 349,22 | 1,00x |
+| 2 Processos | 216,98 | 1,61x |
+| 4 Processos | 119,25 | 2,93x |
+| 8 Processos | 79,97 | 4,37x |
+| 12 Processos | 69,86 | 5,00x |
+
+### Redução do Tempo de Execução
+
+| Configuração | Redução |
+|--------------|---------:|
+| 2 Processos | 37,87% |
+| 4 Processos | 65,85% |
+| 8 Processos | 77,10% |
+| 12 Processos | 79,99% |
+
+---
+
+### Top 10 Palavras
+
+| Palavra | Ocorrências |
+|----------|-----------:|
+| the | 32.040.567 |
+| of | 17.093.205 |
+| in | 14.274.333 |
+| and | 13.486.227 |
+| a | 9.334.795 |
+| to | 8.813.944 |
+| was | 5.217.657 |
+| is | 4.017.112 |
+| for | 3.887.672 |
+| on | 3.804.643 |
+
 
 ---
 
 # Análise dos Resultados
 
-Os resultados demonstram que o sistema conseguiu processar grandes volumes de dados textuais da Wikipédia com eficiência.
+Os resultados demonstram que a paralelização proporcionou uma redução significativa do tempo de processamento quando comparada à versão serial.
 
-As palavras mais frequentes encontradas foram termos comuns da língua inglesa, como “the”, “of” e “in”, comportamento esperado em textos informativos.
+A execução serial levou aproximadamente **349 segundos** para processar mais de **525 milhões de palavras**. Já a versão paralela com **12 processos** concluiu a mesma tarefa em aproximadamente **70 segundos**.
 
-O projeto mostrou a importância de técnicas de processamento textual para análise de grandes quantidades de informações.
+Observou-se uma redução progressiva do tempo de execução conforme a quantidade de processos aumentava, evidenciando o aproveitamento dos múltiplos núcleos disponíveis no processador.
 
-Em relação à implementação paralela, observou-se que a utilização de múltiplas threads reduziu significativamente o tempo de execução quando comparada à execução com apenas 2 threads.
+A melhor configuração encontrada foi a execução com **12 processos**, que apresentou o menor tempo de execução e o maior speedup.
 
-A melhor configuração encontrada foi a utilização de 4 threads, que apresentou o menor tempo de processamento entre os testes realizados.
-
-Também foi observado que o aumento do número de threads para 8 e 12 não resultou em ganhos significativos de desempenho. Esse comportamento evidencia a existência de custos associados ao gerenciamento das threads e à disputa por recursos computacionais, limitando a escalabilidade da solução.
+Os resultados também mostram que o ganho de desempenho não cresce de forma perfeitamente linear, devido aos custos de sincronização, gerenciamento dos processos e compartilhamento de recursos do sistema operacional.
 
 ---
 
 # Conclusão
 
-O desenvolvimento do sistema permitiu aplicar conceitos de processamento textual, análise de dados e programação concorrente em um cenário real utilizando informações da Wikipédia.
+O desenvolvimento do sistema permitiu aplicar conceitos de processamento textual, análise de dados e programação paralela em um cenário real utilizando informações da Wikipédia.
 
-Além disso, o projeto contribuiu para o entendimento prático de:
+Durante os experimentos foram processados mais de **525 milhões de palavras**, demonstrando a capacidade da aplicação de lidar com grandes volumes de dados.
+
+Os resultados evidenciaram os benefícios da paralelização, reduzindo o tempo de execução de **349,22 segundos** para **69,86 segundos**, alcançando um speedup de aproximadamente **5 vezes** em relação à execução serial.
+
+O projeto contribuiu para o entendimento prático de:
 
 - Processamento de dados;
 - Estruturação de informações;
 - Análise textual;
-- Otimização de desempenho;
-- Programação concorrente com threads;
+- Programação paralela;
+- Medição de desempenho;
+- Cálculo de speedup;
 - Avaliação de escalabilidade.
 
-Os experimentos demonstraram que a utilização de threads pode reduzir significativamente o tempo de processamento, porém o aumento do número de threads nem sempre resulta em ganhos proporcionais de desempenho.
-
-O projeto demonstrou como técnicas computacionais podem ser utilizadas para analisar grandes volumes de dados de maneira eficiente, bem como a importância da escolha adequada da quantidade de threads para cada cenário de processamento.
+Dessa forma, foi possível demonstrar na prática como técnicas de paralelização podem aumentar significativamente a eficiência computacional no processamento de grandes bases de dados.
