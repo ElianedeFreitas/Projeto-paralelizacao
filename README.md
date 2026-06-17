@@ -1,4 +1,4 @@
-# Projeto — Contador de Palavras da Wikipédia
+# Projeto — Contador de Palavras 
 
 ## Informações da Disciplina
 
