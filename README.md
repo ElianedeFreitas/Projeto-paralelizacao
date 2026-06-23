@@ -17,8 +17,7 @@ O crescimento exponencial da quantidade de informações disponíveis na interne
 
 O presente projeto tem como objetivo desenvolver um sistema de contagem de palavras utilizando dados textuais da Wikipédia, aplicando conceitos de processamento de dados e programação paralela.
 
-A análise da frequência de palavras em grandes bases textuais pode auxiliar pesquisas acadêmicas, sistemas de busca, aplicações de inteligência artificial, processamento de linguagem natural e ferramentas educacionais. Dessa forma, o projeto demonstra como técnicas computacionais podem contribuir para a organização e análise de grandes volumes de informação.
-
+A análise da frequência de palavras em grandes bases textuais possui diversas aplicações práticas e científicas. Essa técnica é utilizada por motores de busca, como o Google, para identificar quais páginas são mais relevantes para uma pesquisa. Também é fundamental em áreas de Inteligência Artificial e Processamento de Linguagem Natural, onde a análise de bilhões de palavras permite identificar termos importantes, construir vocabulários, treinar modelos de IA e aprimorar tradutores automáticos e assistentes virtuais. Além disso, a contagem de palavras auxilia pesquisadores na análise da evolução da linguagem, das mudanças culturais, dos temas mais estudados ao longo do tempo e da produção científica em diferentes áreas do conhecimento. Dessa forma, o projeto demonstra como técnicas computacionais podem contribuir para a organização, análise e extração de informações relevantes a partir de grandes volumes de dados textuais.
 ---
 
 # Base de Dados
