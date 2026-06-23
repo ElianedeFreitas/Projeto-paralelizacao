@@ -13,11 +13,13 @@
 
 # Introdução
 
-O crescimento exponencial da quantidade de informações disponíveis na internet tornou necessária a criação de ferramentas capazes de processar e analisar grandes volumes de dados de forma eficiente. Nesse contexto, a Wikipédia representa uma das maiores fontes de conhecimento livre do mundo, contendo milhões de artigos sobre os mais diversos temas.
+Este projeto tem como objetivo desenvolver um sistema de contagem de palavras utilizando dados textuais da Wikipédia, uma das maiores fontes de conhecimento livre do mundo. A aplicação utiliza conceitos de processamento de dados e programação paralela para analisar grandes volumes de informações de forma eficiente.
 
-O presente projeto tem como objetivo desenvolver um sistema de contagem de palavras utilizando dados textuais da Wikipédia, aplicando conceitos de processamento de dados e programação paralela.
+A contagem de frequência de palavras é uma técnica amplamente utilizada em áreas como processamento de linguagem natural, inteligência artificial, sistemas de busca e análise de dados. Por meio dessa abordagem, é possível identificar padrões de uso da linguagem, extrair informações relevantes e compreender melhor o conteúdo de grandes coleções de documentos. 
 
-A análise da frequência de palavras em grandes bases textuais possui diversas aplicações práticas e científicas. Essa técnica é utilizada por motores de busca, como o Google, para identificar quais páginas são mais relevantes para uma pesquisa. Também é fundamental em áreas de Inteligência Artificial e Processamento de Linguagem Natural, onde a análise de bilhões de palavras permite identificar termos importantes, construir vocabulários, treinar modelos de IA e aprimorar tradutores automáticos e assistentes virtuais. Além disso, a contagem de palavras auxilia pesquisadores na análise da evolução da linguagem, das mudanças culturais, dos temas mais estudados ao longo do tempo e da produção científica em diferentes áreas do conhecimento. Dessa forma, o projeto demonstra como técnicas computacionais podem contribuir para a organização, análise e extração de informações relevantes a partir de grandes volumes de dados textuais.
+Com este projeto, busca-se demonstrar a aplicação prática de técnicas computacionais para o processamento e análise de dados textuais em larga escala, utilizando artigos da Wikipédia como base para os experimentos. 
+
+
 ---
 
 # Base de Dados
